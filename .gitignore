@@ -99,3 +99,17 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# OS Level
+.DS_Store
+*.db
+*.swp
+
+
+.project
+.pydevproject
+.settings/*
+.idea
+.python-version
+.module-cache
+.vscode

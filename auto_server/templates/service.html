@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/plugins/font-awesome/css/font-awesome.css">
+    <style>
+        .search-area {
+            position: relative;
+        }
+
+        .search-area .search-bth {
+            position: absolute;
+            bottom: 1px;
+        }
+
+        .search-area .search-condition .condition {
+            height: 35px;
+            position: relative;
+        }
+
+        .search-area .search-condition .condition .icons {
+            position: absolute;
+            left: 0;
+            width: 35px;
+            height: 35px;
+        }
+
+        .search-area .search-condition .condition .input-group {
+            position: absolute;
+            left: 35px;
+            right: 0;
+            height: 35px;
+        }
+
+        #handleStatus {
+            position: fixed;
+            z-index: 9998;
+            width: 500px;
+            left: 50%;
+            margin-left: -250px;
+            text-align: center
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="handleStatus"></div>
+    <h1 id="tableName"></h1>
+    {#    组合搜索开始#}
+    <div class="search-area clearfix">
+        <div id="searchCondition" class="search-condition col-md-offset-2 col-md-8">
+            <div class="condition">
+                <div class="icons">
+                    <a class="btn btn-default add-condition">
+                        <i class="fa fa-plus-square"></i>
+                    </a>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <label class="btn btn-default no-radius" type="button" style="width: 100px;"></label>
+                        <button type="button" class="btn btn-default dropdown-toggle no-border-r" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+                        <ul class="change-search-condition dropdown-menu">
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="search-bth col-md-offset-10 col-md-2">
+            <a class="btn btn-primary" id="doSearch">搜索</a>
+        </div>
+    </div>
+    {#    组合搜索结束#}
+    {#    功能按钮开始#}
+    <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+        <a class="btn btn-default" id="checkAll">全选</a>
+        <a class="btn btn-default" id="checkCancel">取消</a>
+        <a class="btn btn-default" id="checkReverse">反选</a>
+        <a class="btn btn-default">添加</a>
+        <a class="btn btn-default" id="delMulit">删除</a>
+        <a class="btn btn-default" id="saveMulit">保存</a>
+        <a class="btn btn-default" id="editModeStatus">进入编辑模式</a>
+    </div>
+    {#    功能按钮结束#}
+    {#    数据表开始#}
+    <table class="table table-bordered">
+        <thead id="tHead">
+        <tr>
+
+        </tr>
+
+        </thead>
+        <tbody id="tBody">
+
+        </tbody>
+
+    </table>
+    {#    数据表结束#}
+    {#    分页开始#}
+    <ul class="pagination" id="pagination"></ul>
+    {#    分页结束#}
+</div>
+
+<script src="/static/plugins/js/jquery-3.2.1.js"></script>
+<script src="/static/js/jquery.cookie.js"></script>
+<script src="/static/plugins/bootstrap/js/bootstrap.js"></script>
+<script src="/static/js/curd-list.js"></script>
+<script>
+    $(function () {
+        $.curdList('{{ service_url }}');
+    })
+</script>
+</body>
+</html>

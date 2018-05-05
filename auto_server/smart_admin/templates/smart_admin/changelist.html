@@ -1,0 +1,59 @@
+{% load result_list %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="\static\smart_admin\plugins\bootstrap\css\bootstrap.css">
+    <style>
+        .filter-item{
+            padding: 5px 0;
+        }
+        .filter-item a{
+            display: inline-block;
+            padding: 5px 8px;
+            border: 1px solid lightgray;
+        }
+        .filter-item a.active{
+            background-color: #428bca;
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>数据列表</h1>
+    <div class="row">
+        {% if cl.list_filter %}
+            {% for row_items in cl.gen_list_filter %}
+                <div class="filter-item">
+                    {% for item in row_items %}
+                        {{ item }}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <form method="POST">
+    {% csrf_token %}
+        <div class="row">
+            {% if cl.actions %}
+                {% show_actions cl %}
+            {% endif %}
+
+            {% if cl.model_config_obj.get_show_btn %}
+                {{ cl.add_html }}
+            {% endif %}
+
+        </div>
+        <div class="row">
+            {% show_result_list cl %}
+            <ul class="pagination">
+                {{ cl.page_html }}
+            </ul>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

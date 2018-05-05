@@ -1,0 +1,38 @@
+<form class="form-horizontal" method="POST">
+    {% csrf_token %}
+    {#    {{ form.as_p }}#}
+    {% for tpl in form %}
+        <div class="form-group col-sm-6">
+            <label class="col-sm-3">{{ tpl.item.label }}</label>
+            <div class="col-sm-9" style="position: relative">
+                {{ tpl.item }}
+                {{ tpl.item.errors.0 }}
+                {% if tpl.has_popup %}
+                    <a onclick="popup('{{ tpl.popup_url }}')">添加</a>
+                {% endif %}
+            </div>
+
+        </div>
+    {% endfor %}
+    <div class="form-group">
+        <div class="col-sm-offset-10 col-sm-2">
+            <input type="submit" value="提交">
+        </div>
+    </div>
+
+</form>
+
+<script>
+    function popupBack(popup_id,id,text) {
+        var op=document.createElement('option');
+        op.innerHTML=text;
+        op.setAttribute('value',id);
+        op.setAttribute('selected','selected');
+        document.getElementById(popup_id).appendChild(op);
+
+    }
+
+    function popup(url) {
+        window.open(url,url,"status=1,height=500,width:600,toolbar=0,resizeable=0")
+    }
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/plugins/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<div class="container">
+    <h1>硬盘列表</h1>
+    <table class="table table-bordered">
+        <thead id="tHead">
+        <tr>
+
+        </tr>
+
+        </thead>
+        <tbody id="tBody">
+
+        </tbody>
+    </table>
+
+</div>
+
+<script src="/static/plugins/js/jquery-3.2.1.js"></script>
+<script src="/static/js/curd-list.js"></script>
+<script>
+    $(function () {
+        $.curdList('/disk_json.html');
+    })
+</script>
+</body>
+</html>

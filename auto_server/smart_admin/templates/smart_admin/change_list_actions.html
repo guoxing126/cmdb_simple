@@ -1,0 +1,7 @@
+<select class="form-control" name="action" style="display: inline-block;width: 200px">
+    <option>请选择操作</option>
+    {% for item in yield_actions %}
+        <option value="{{ item.0 }}">{{ item.1 }}</option>
+    {% endfor %}
+</select>
+<input type="submit" value="执行" class="btn btn-primary">
