@@ -32,6 +32,7 @@ urlpatterns = [
     # url(r'^test/asdf/(?P<a1>\w+)/asdwfv/',test,name='xx'),
     # url(r'^admin/', admin.site.urls),
     url(r'^api/', include('api.urls')),
+    url(r'^simple_manage/', include('simple_manage.urls')),
     # url(r'^smartadmin/', ([
     #                           url(r'^repository/', ([
     #                                                     url(r'^userinfo/', index),

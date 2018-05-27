@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'repository.apps.RepositoryConfig',
     'smart_admin.apps.SmartAdminConfig',
+    'simple_manage'
 ]
 
 MIDDLEWARE = [

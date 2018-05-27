@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>hostname: {{ obj.hostname }} {{ obj.errors.hostname.0 }}</p>
+    <p>sn: {{ obj.sn }} {{ obj.errors.sn.0 }}</p>
+    <p>manufacturer: {{ obj.manufacturer }} {{ obj.errors.manufacturer.0 }}</p>
+    <p>model: {{ obj.model }}{{ obj.errors.model.0 }} </p>
+    <p>manage_ip: {{ obj.manage_ip }} {{ obj.errors.manage_ip.0 }}</p>
+    <p>os_platform: {{ obj.os_platform }} {{ obj.errors.os_platform.0 }}</p>
+    <input type="submit" value="提交">
+</form>
+
+</body>
+</html>
